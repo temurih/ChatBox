@@ -28,7 +28,7 @@ const chat = new (function () {
         chats.push({
             datetime: new Date(d.setTime(d.getTime() + 10000)).toISOString(),
             message:
-                "I'm sorry, there is no sie 7 available in that colour. There are some in red and blue however",
+                "I'm sorry, there is no size 7 available in that colour. There are some in red and blue however",
             from: 'Operator',
         });
         chats.push({
