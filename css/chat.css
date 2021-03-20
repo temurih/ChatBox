@@ -1,31 +1,189 @@
-body, div, span, textarea {
-	font-family: Helvetica, Arial, sans-serif;
+body,
+html {
+    margin: 0;
 }
 
-#chatHolder {
-	max-height: 500px;
-	width: 500px;
-	border: 1px solid #cccccc;
-	overflow: auto;
+body,
+div,
+span,
+textarea {
+    font-size: 16px;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
-#chatHistory {
-	border-bottom: 1px solid #cccccc;
-	min-height: 198px;
+/* ------ Style Scrollbar ------ */
+#chat-history::-webkit-scrollbar {
+    width: 10px;
 }
 
-#liveChat {
-	width: 400px;
-	min-height: 198px;
+#chat-history::-webkit-scrollbar-track {
+    background: #555;
 }
 
-#chatInput {
-	width: 428px;
-	height: 35px;
+#chat-history::-webkit-scrollbar-thumb {
+    background: #888;
 }
 
-#chatSubmit {
-	vertical-align: top;
-    height: 35px;
-    width: 70px;
+#chat-history::-webkit-scrollbar-thumb:hover {
+    background: #f1f1f1;
+}
+/* ---------------------------- */
+
+.chat-window {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+    position: relative;
+    background-color: #242424;
+    box-shadow: 0px 0 5px #006c81;
+    animation-name: shadowAnimation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shadowAnimation {
+    from {
+        box-shadow: 0px -8px 36px #006c81;
+    }
+    to {
+        box-shadow: 0px ​-18px 50px #006c81;
+    }
+}
+
+#chat-history {
+    background-color: #333333;
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 20px;
+}
+
+.visitor {
+    margin-left: auto;
+    text-align: right;
+}
+
+.operator,
+.visitor {
+    margin-top: 10px;
+    width: 40%;
+    overflow: hidden;
+}
+
+.chat-wrapper {
+    display: inline-block;
+    transition: all 0.5s ease-in-out;
+}
+
+.visitor .sent-by {
+    color: #ccc;
+    text-align: right;
+}
+
+.sent-by {
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #7f7f7f;
+}
+
+.visitor .message-container {
+    background-color: #006c81;
+    color: #fff;
+    border-bottom-left-radius: 13px;
+}
+
+.operator .message-container {
+    border-bottom-right-radius: 13px;
+}
+
+.message-container {
+    background-color: #fff;
+    padding: 10px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    text-align: left;
+}
+
+.visitor .message-time {
+    text-align: right;
+}
+
+.message-time {
+    font-size: 12px;
+    color: #ccc;
+    margin-top: 3px;
+}
+
+.chat-controls {
+    display: flex;
+    padding: 20px;
+    background-color: #242424;
+}
+
+.chat-controls textarea {
+    flex: 1 1 auto;
+    padding: 10px;
+    margin-right: 10px;
+    resize: none;
+    border: none;
+    outline: none;
+    background-color: #3a3b3c;
+    color: #fff;
+    border-radius: 30px;
+    border: 1px solid transparent;
+}
+.chat-controls textarea:focus,
+.chat-controls textarea:active {
+    border-color: #006c81;
+}
+
+.chat-controls input {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100px;
+    height: 100%;
+    color: #fff;
+    border-radius: 30px;
+    background-color: #006c81;
+}
+
+.chat-controls input:disabled {
+    cursor: default;
+    color: #ccc;
+    background-color: #3a3b3c !important;
+}
+
+.chat-controls input:hover {
+    background-color: #017389;
+}
+
+.chat-controls input:active {
+    background-color: #006c81;
+}
+
+.top {
+    position: relative;
+    transform: translateY(0);
+}
+
+.bottom {
+    position: absolute;
+    transform: translateY(100%);
+}
+
+@media only screen and (max-width: 470px) {
+    .operator,
+    .visitor {
+        margin-top: 10px;
+        width: 70%;
+    }
 }

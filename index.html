@@ -1,0 +1,23 @@
+<html>
+
+<head>
+	<title>Chat Box</title>
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/chat.css">
+	<script src="js/chat.js"></script>
+</head>
+
+<body onload="pageLoad()">
+	<div class="chat-window">
+		<div class="header">Chat Box</div>
+		<div id="chat-history"></div>
+		<div class="chat-controls">
+			<textarea id="chat-input" rows="1" placeholder='Type your question here...'></textarea>
+			<input id="chat-send" type="button" value='SEND' onclick="sendChat()" disabled></input>
+		</div>
+	</div>
+</body>
+
+<script src="js/handleChat.js"></script>
+
+</html>
